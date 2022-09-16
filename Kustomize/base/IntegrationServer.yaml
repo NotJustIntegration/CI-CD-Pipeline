@@ -4,6 +4,7 @@ metadata:
   name: is-01-toolkit
   namespace: cp4i
 spec:
+  serviceAccountName: argocd-argocd-application-controller
   adminServerSecure: true
   createDashboardUsers: true
   designerFlowsOperationMode: disabled

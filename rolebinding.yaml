@@ -1,0 +1,14 @@
+
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: RoleBinding
+metadata:
+  name: argocd-role-binding
+  namespace: cp4i
+roleRef:
+  apiGroup: rbac.authorization.k8s.io  
+  kind: Role
+  name: argocd-role
+subjects:
+- kind: ServiceAccount
+  name: argocd-argocd-application-controller 
+  namespace: pipeline 
