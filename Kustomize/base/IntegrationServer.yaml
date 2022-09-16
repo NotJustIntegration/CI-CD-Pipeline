@@ -1,0 +1,36 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: IntegrationServer
+metadata:
+  name: is-01-toolkit
+  namespace: cp4i
+spec:
+  adminServerSecure: true
+  createDashboardUsers: true
+  designerFlowsOperationMode: disabled
+  enableMetrics: true
+  license:
+    accept: true
+    license: L-KSBM-C87FU2
+    use: CloudPakForIntegrationNonProduction
+  pod:
+    containers:
+      runtime:
+        resources:
+          limits:
+            cpu: 300m
+            memory: 350Mi
+          requests:
+            cpu: 300m
+            memory: 300Mi
+  replicas: 1
+  router:
+    timeout: 120s
+  service:
+    endpointType: http
+  version: '12.0'
+  barURL: >-
+    https://ace-dashboard-01-quickstart-dash:3443/v1/directories/MQ_Uniform_Read_Test?065ace1d-428e-4290-8a33-52ccd8246726
+  configurations:
+    - amqclchl.zip
+    - uniclus-mq-policy
+    - uniclus-ccdt
